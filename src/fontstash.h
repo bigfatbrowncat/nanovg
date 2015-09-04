@@ -19,6 +19,9 @@
 #ifndef FONS_H
 #define FONS_H
 
+#include <stdlib.h>
+//#define STBTT_RASTERIZER_VERSION 1
+
 #define FONS_INVALID -1
 
 enum FONSflags {
@@ -239,10 +242,10 @@ int fons__tt_getGlyphKernAdvance(FONSttFontImpl *font, int glyph1, int glyph2)
 #else
 
 #define STB_TRUETYPE_IMPLEMENTATION
-static void* fons__tmpalloc(size_t size, void* up);
+/*static void* fons__tmpalloc(size_t size, void* up);
 static void fons__tmpfree(void* ptr, void* up);
 #define STBTT_malloc(x,u)    fons__tmpalloc(x,u)
-#define STBTT_free(x,u)      fons__tmpfree(x,u)
+#define STBTT_free(x,u)      fons__tmpfree(x,u)*/
 #include "stb_truetype.h"
 
 struct FONSttFontImpl {
